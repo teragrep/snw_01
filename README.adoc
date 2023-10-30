@@ -1,0 +1,44 @@
+# ServiceNow Log to RELP forwarder (snw_01)
+
+## Requirements
+
+`java-11`
+
+## Configurations
+
+All configuration settings are passed as system properties. They can be edited with `systemctl edit --full snw_01`
+
+[cols=3,2]
+|===
+|Property|Default value|Description
+
+|`log4j2.configurationFile`|`\file:///opt/teragrep/snw_01/etc/log4j2.xml`|log4j2 configuration location
+|`syslog.appname`|`snw-02`|Relp application name
+|`syslog.hostname`|localhost.localdomain|Relp hostname
+|`tableApi.version`|`v2`|API version
+|`tableApi.sysParamLimit`|`1000`|API system parameter limit
+|`tableApi.tables`|`sysevent,syslog_transaction`|Tables to fetch
+|`tableApi.username`||Username for authenticating to the API
+|`tableApi.password`||Password for authenticating to the API
+|`tableApi.url.scheme`|`http`|Protocol to use when connecting to the API
+|`tableApi.url.host`|`localhost`|API host
+|`tableApi.url.port`|`8080`|API port
+|`statestore.directory`|`var`|Statestore directory, relative to current working directory
+|`scheduler.interval`|`2000`|Fetch interval
+|`proxy.enabled`|`false`|Is proxy enabled
+|`proxy.host`|`localhost`|Proxy hostname
+|`proxy.port`|`3128`|Proxy port
+|`proxy.authentication.enabled`|`false`|Does proxy require authentication
+|`proxy.authentication.username`||Username for proxy authentication
+|`proxy.authentication.password`||Password for proxy authentication
+|`relp.connection.timeout`|`5000`|Relp connection timeout, in milliseconds
+|`relp.transaction.read.timeout`|`5000`|Relp transaction reading timeout, in milliseconds
+|`relp.transaction.write.timeout`|`5000`|Relp transaction writing timeout, in milliseconds
+|`relp.connection.retry.interval`|`5000`|Relp connection retry interval, in milliseconds
+|`relp.connection.port`|`601`|Relp target port
+|`relp.connection.address`|`localhost`|Relp target address
+|===
+
+## Usage
+
+`systemctl start snw_01`
