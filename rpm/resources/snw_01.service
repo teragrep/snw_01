@@ -1,0 +1,36 @@
+[Unit]
+Description=com.teragrep-snw_01
+
+[Service]
+ExecStart=/usr/lib/jvm/jre-11/bin/java \
+    -Dlog4j2.configurationFile=file:///opt/teragrep/snw_01/etc/log4j2.xml \
+    -Dsyslog.appname=snw-02 \
+    -Dsyslog.hostname=localhost.localdomain \
+    -DtableApi.version=v2 \
+    -DtableApi.sysParamLimit=1000 \
+    -DtableApi.tables=sysevent,syslog_transaction \
+    -Dstatestore.directory=var \
+    -Dscheduler.interval=2000 \
+    -Dproxy.enabled=false \
+    -Dproxy.host=localhost \
+    -Dproxy.port=3128 \
+    -Dproxy.authentication.enabled=false \
+    -Dproxy.authentication.username= \
+    -Dproxy.authentication.password= \
+    -Drelp.connection.timeout=5000 \
+    -Drelp.transaction.read.timeout=5000 \
+    -Drelp.transaction.write.timeout=5000 \
+    -Drelp.connection.retry.interval=5000 \
+    -Drelp.connection.port=601 \
+    -Drelp.connection.address=localhost \
+    -DtableApi.username= \
+    -DtableApi.password= \
+    -DtableApi.url.scheme=http \
+    -DtableApi.url.host=localhost \
+    -DtableApi.url.port=8080 \
+    -jar /opt/teragrep/snw_01/lib/snw_01.jar
+User=srv-snw_01
+WorkingDirectory=/opt/teragrep/snw_01
+
+[Install]
+WantedBy=multi-user.target
