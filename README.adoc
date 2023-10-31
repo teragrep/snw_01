@@ -1,10 +1,10 @@
-# ServiceNow Log to RELP forwarder (snw_01)
+= ServiceNow Log to RELP forwarder (snw_01)
 
-## Requirements
+== Requirements
 
 `java-11`
 
-## Configurations
+== Configurations
 
 All configuration settings are passed as system properties. They can be edited with `systemctl edit --full snw_01`
 
@@ -39,6 +39,6 @@ All configuration settings are passed as system properties. They can be edited w
 |`relp.connection.address`|`localhost`|Relp target address
 |===
 
-## Usage
+== Usage
 
 `systemctl start snw_01`
