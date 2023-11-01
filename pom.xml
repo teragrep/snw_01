@@ -319,8 +319,7 @@
         <repository>
           <id>github</id>
           <name>GitHub Packages</name>
-          <!-- FIXME -->
-          <url>https://maven.pkg.github.com/StrongestNumber9/snw_01</url>
+          <url>https://maven.pkg.github.com/teragrep/snw_01</url>
         </repository>
       </distributionManagement>
     </profile>
