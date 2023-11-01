@@ -1,4 +1,4 @@
-= ServiceNow Log to RELP forwarder (snw_01)
+= Log to RELP forwarder (snw_01)
 
 == Requirements
 
